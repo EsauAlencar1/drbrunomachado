@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Bruno Machado — Ortopedia e Traumatologia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-dark: #f0f4f8;
+  --bg-card: #ffffff;
+  --bg-section: #e2e8f0;
+  --text-white: #0f2b4d;
+  --text-muted: #4a5568;
+  --text-light: #64748b;
+  --text-dim: #94a3b8;
+  --accent: #1a56db;
+  --accent-light: #3b82f6;
+  --accent-glow: rgba(26,86,219,0.12);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  background: var(--bg-dark);
+  color: var(--text-white);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 80px;
+  height: 72px;
+  background: rgba(240,244,248,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  color: var(--text-white);
+}
+.navbar .logo svg { width: 24px; height: 24px; fill: var(--accent-light); }
+.nav-links { display: flex; align-items: center; gap: 36px; }
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text-white); }
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 32px;
+  background: var(--accent);
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.nav-links .nav-cta { color: #ffffff; }
+.nav-cta:hover { background: #1246b8; color: #ffffff; }
+
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.mobile-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--text-white);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Sections */
+section { padding: 80px; }
+
+/* Hero */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  min-height: 640px;
+  padding-top: 152px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.hero-left { flex: 1; }
+.hero-left .eyebrow {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+.hero-left h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 52px;
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--text-white);
+}
+.hero-left h1 em {
+  font-style: italic;
+  color: var(--accent-light);
+}
+.hero-left p {
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-top: 24px;
+}
+.hero-cta { display: flex; gap: 16px; margin-top: 32px; }
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover { background: #1246b8; }
+.btn-community {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 36px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.btn-community:hover { background: #1ebe5a; }
+.btn-whatsapp-simple {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 36px;
+  background: transparent;
+  color: var(--text-light);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid rgba(0,0,0,0.12);
+  transition: all 0.2s;
+}
+.btn-whatsapp-simple:hover { border-color: #25D366; color: #25D366; }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 18px 36px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-light);
+  text-decoration: none;
+  border: 1px solid rgba(0,0,0,0.12);
+  transition: border-color 0.2s;
+}
+.btn-secondary:hover { border-color: var(--accent); }
+
+.hero-right {
+  width: 440px;
+  height: 520px;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+}
+.hero-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section-header h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-white);
+  margin-bottom: 16px;
+}
+.section-header p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+/* Conditions Grid */
+.conditions { background: var(--bg-dark); }
+.conditions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.cond-col { display: flex; flex-direction: column; gap: 16px; }
+.cond-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--accent-glow);
+  transition: border-color 0.2s;
+}
+.cond-card:hover { border-color: var(--accent); }
+.cond-card svg { width: 28px; height: 28px; flex-shrink: 0; color: var(--accent-light); }
+.cond-card h4 { font-size: 17px; font-weight: 600; color: var(--text-white); }
+.cond-card p { font-size: 14px; font-weight: 300; color: var(--text-muted); }
+
+/* Comunidade */
+.comunidade { background: var(--bg-dark); }
+.comunidade-inner { max-width: 1280px; margin: 0 auto; }
+
+.mod1 {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 32px;
+  background: var(--bg-card);
+  border-radius: 16px;
+  border: 1px solid var(--accent-glow);
+  margin-bottom: 16px;
+}
+.mod1 svg { width: 44px; height: 44px; flex-shrink: 0; color: var(--accent); }
+.mod1-text { flex: 1; }
+.mod1-text h3 { font-size: 20px; font-weight: 600; color: var(--text-white); margin-bottom: 8px; }
+.mod1-text p { font-size: 15px; font-weight: 300; color: var(--text-muted); line-height: 1.7; }
+.mod1-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 16px;
+  background: rgba(26,86,219,0.08);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.mod1-badge strong { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--accent); }
+.mod1-badge span { font-size: 10px; font-weight: 500; letter-spacing: 1px; color: var(--text-muted); }
+
+.mod23 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.mod-card {
+  padding: 28px;
+  background: var(--bg-card);
+  border-radius: 16px;
+  border: 1px solid var(--accent-glow);
+}
+.mod-card svg { width: 36px; height: 36px; color: var(--accent); margin-bottom: 16px; }
+.mod-card h3 { font-size: 18px; font-weight: 600; color: var(--text-white); margin-bottom: 8px; }
+.mod-card p { font-size: 15px; font-weight: 300; color: var(--text-muted); line-height: 1.7; }
+.mod-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent-light);
+  text-decoration: none;
+}
+
+/* Sobre */
+.sobre {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.sobre-img {
+  width: 360px;
+  height: 420px;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.sobre-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+.sobre-text { flex: 1; }
+.sobre-text .crm {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+.sobre-text h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 42px;
+  font-weight: 400;
+  color: var(--text-white);
+  margin-bottom: 20px;
+}
+.sobre-text p {
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.sobre-stats { display: flex; gap: 32px; margin-top: 12px; }
+.sobre-stats h3 { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--accent); }
+.sobre-stats span { font-size: 11px; color: var(--text-dim); }
+
+/* Protocolo 5R */
+.protocolo { background: var(--bg-section); }
+section { border-bottom: 1px solid rgba(0,0,0,0.05); }
+.protocolo-inner { max-width: 1280px; margin: 0 auto; }
+.r5-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.r5-card {
+  padding: 28px 20px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--accent-glow);
+}
+.r5-card .num { font-size: 12px; font-weight: 500; letter-spacing: 1.5px; color: var(--text-dim); margin-bottom: 8px; }
+.r5-card .letter { font-family: 'DM Serif Display', serif; font-size: 40px; color: var(--accent); margin-bottom: 4px; }
+.r5-card .name { font-size: 13px; font-weight: 600; letter-spacing: 1.5px; color: var(--accent-light); margin-bottom: 12px; }
+.r5-card .desc { font-size: 14px; font-weight: 300; line-height: 1.7; color: var(--text-muted); }
+
+/* Depoimentos em Vídeo */
+.depoimentos { background: var(--bg-section); }
+.locais { background: var(--bg-card); }
+.cta { background: var(--bg-card); }
+.footer { background: #d1d8e0; border-top-color: rgba(0,0,0,0.08); }
+.depoimentos-inner { max-width: 1280px; margin: 0 auto; }
+.video-main {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.video-player {
+  width: 520px;
+  height: 340px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  background: #e2e8f0;
+  flex-shrink: 0;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.video-player video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.play-overlay:hover { background: rgba(0,0,0,0.2); }
+.play-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+.play-overlay:hover .play-btn { transform: scale(1.08); }
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255,255,255,0.15);
+}
+.progress-bar span {
+  display: block;
+  height: 100%;
+  width: 40%;
+  background: var(--accent);
+}
+
+.video-info { flex: 1; }
+.video-info .tag { font-size: 13px; font-weight: 500; letter-spacing: 1.5px; color: var(--accent); margin-bottom: 12px; }
+.video-info blockquote { font-size: 16px; font-weight: 300; line-height: 1.8; color: var(--text-light); margin-bottom: 16px; }
+.video-info cite { font-size: 16px; font-weight: 500; font-style: normal; color: var(--text-white); display: block; margin-bottom: 4px; }
+.video-info .trat { font-size: 14px; color: var(--text-dim); }
+.video-dots { display: flex; gap: 8px; margin-top: 16px; }
+.video-dots span {
+  height: 8px;
+  border-radius: 4px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.video-dots .active { width: 24px; background: var(--accent); }
+.video-dots .inactive { width: 8px; background: rgba(0,0,0,0.15); }
+
+.thumbs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.thumbs-header h3 { font-size: 13px; font-weight: 500; color: var(--text-white); }
+.thumbs-arrows { display: flex; gap: 8px; }
+.thumbs-arrows button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: none;
+  color: var(--text-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+  font-size: 16px;
+}
+.thumbs-arrows button:last-child { background: var(--accent); border-color: var(--accent); }
+.thumbs-arrows button:hover { background: var(--accent); border-color: var(--accent); }
+
+.thumbs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.thumb-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--accent-glow);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.thumb-card:hover { border-color: var(--accent); }
+.thumb-video {
+  position: relative;
+  height: 140px;
+  background: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.thumb-video video { width: 100%; height: 100%; object-fit: cover; }
+.thumb-play {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(26,86,219,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.thumb-duration {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  padding: 4px 8px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 500;
+  color: #fff;
+}
+.thumb-info { padding: 12px 14px; }
+.thumb-info h4 { font-size: 15px; font-weight: 600; color: var(--text-white); margin-bottom: 4px; }
+.thumb-info p { font-size: 13px; font-weight: 300; color: var(--text-dim); }
+
+/* Locais */
+.locais { background: var(--bg-section); }
+.locais-inner { max-width: 1280px; margin: 0 auto; }
+.locais-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.local-card {
+  padding: 28px;
+  background: var(--bg-card);
+  border-radius: 16px;
+  border: 1px solid var(--accent-glow);
+}
+.local-card svg { width: 28px; height: 28px; color: var(--accent-light); margin-bottom: 16px; }
+.local-card h3 { font-size: 20px; font-weight: 600; color: var(--text-white); margin-bottom: 8px; }
+.local-card p { font-size: 15px; font-weight: 300; line-height: 1.8; color: #718096; white-space: pre-line; }
+.local-card .phone { font-size: 15px; font-weight: 500; color: var(--accent); margin-top: 12px; }
+
+/* Relatos */
+.relatos { background: var(--bg-dark); }
+.relato-slider {
+  position: relative;
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.relato-slider-inner {
+  flex: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--accent-glow);
+  background: var(--bg-card);
+  aspect-ratio: 9/16;
+  max-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.relato-slider-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: opacity 0.3s;
+}
+.relato-slider-inner .relato-counter {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  padding: 6px 14px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 20px;
+  font-size: 12px;
+  color: #fff;
+  font-weight: 500;
+}
+.relato-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--accent-glow);
+  color: var(--text-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: 0.2s;
+  flex-shrink: 0;
+}
+.relato-arrow:hover { background: var(--accent); border-color: var(--accent); }
+.relato-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+.relato-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.relato-dots span.active { background: var(--accent); width: 24px; border-radius: 4px; }
+@media (max-width: 768px) {
+  .relato-slider { max-width: 100%; padding: 0 8px; }
+  .relato-arrow { width: 36px; height: 36px; font-size: 16px; }
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 100px 80px;
+  background: var(--bg-card);
+}
+.cta h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--text-white);
+  margin-bottom: 24px;
+}
+.cta p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 500px;
+  margin: 0 auto 32px;
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 48px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.btn-whatsapp:hover { background: #20bd5a; }
+.cta-meta { display: flex; gap: 40px; justify-content: center; margin-top: 24px; }
+.cta-meta span { font-size: 12px; color: var(--text-dim); }
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 80px;
+  background: #060a12;
+  border-top: 1px solid var(--accent-glow);
+}
+.footer p { font-size: 12px; font-weight: 300; color: var(--text-dim); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero { flex-direction: column; text-align: center; padding-top: 120px; }
+  .hero-right { width: 340px; height: 400px; }
+  .hero-cta { justify-content: center; }
+  .sobre { flex-direction: column; text-align: center; }
+  .sobre-stats { justify-content: center; }
+  .video-main { flex-direction: column; }
+  .video-player { width: 100%; }
+  .r5-grid { grid-template-columns: repeat(3, 1fr); }
+  .thumbs-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.navbar.open .nav-links {
+  display: flex;
+  position: absolute;
+  top: 72px;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  background: rgba(240,244,248,0.98);
+  backdrop-filter: blur(12px);
+  padding: 24px;
+  gap: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.navbar.open .mobile-toggle span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.navbar.open .mobile-toggle span:nth-child(2) { opacity: 0; }
+.navbar.open .mobile-toggle span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+@media (max-width: 768px) {
+  section { padding: 60px 24px; }
+  .navbar { padding: 0 24px; }
+  .nav-links { display: none; }
+  .mobile-toggle { display: flex; }
+  .hero-left h1 { font-size: 36px; }
+  .hero-right { width: 100%; height: 360px; }
+  .hero-cta { flex-direction: column; }
+  .btn-primary, .btn-secondary { justify-content: center; }
+  .conditions-grid { grid-template-columns: 1fr; }
+  .mod23 { grid-template-columns: 1fr; }
+  .mod1 { flex-direction: column; text-align: center; }
+  .r5-grid { grid-template-columns: 1fr; }
+  .thumbs-grid { grid-template-columns: 1fr; }
+  .locais-grid { grid-template-columns: 1fr; }
+  .cta { padding: 60px 24px; }
+  .cta h2 { font-size: 32px; }
+  .cta-meta { flex-direction: column; gap: 8px; align-items: center; }
+  .footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+  .sobre-img { width: 280px; height: 340px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="Logomarca.png" alt="Dr. Bruno Machado" style="height:36px; width:auto;">
+  </div>
+  <div class="nav-links">
+    <a href="#condicoes">Condições</a>
+    <a href="#comunidade">Comunidade</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#protocolo">Protocolo</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#relatos">Relatos</a>
+    <a href="#locais">Locais</a>
+    <a href="https://chat.whatsapp.com/Eoa7fBtUYORLwc9g0LJFVX" class="nav-cta" target="_blank">Comunidade WhatsApp</a>
+  </div>
+  <button class="mobile-toggle" onclick="this.parentElement.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <p class="eyebrow">Ortopedia Integrativa e Regenerativa</p>
+    <h1>Você não precisa<br><em>conviver com a dor.</em></h1>
+    <p>Dor crônica, artrose, dores articulares ou trauma esportivo que não melhora? O Protocolo 5R trata a causa com uma abordagem integrativa e personalizada. +15 mil vidas transformadas pelo movimento.</p>
+    <div class="hero-cta">
+      <a href="https://chat.whatsapp.com/Eoa7fBtUYORLwc9g0LJFVX" class="btn-community" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        Entrar na Comunidade
+      </a>
+      <a href="https://wa.me/5586994262812" class="btn-whatsapp-simple" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="images/drbruno.JPG" alt="Dr. Bruno Machado — Ortopedista e Traumatologista">
+  </div>
+</section>
+
+<!-- Condições Tratadas -->
+<section class="conditions" id="condicoes">
+  <div class="section-header">
+    <h2>Especialidades e condições tratadas</h2>
+    <p>Mais de 10 anos dedicados ao diagnóstico e tratamento de dores articulares e musculoesqueléticas.</p>
+  </div>
+  <div class="conditions-grid">
+    <div class="cond-col">
+      <div class="cond-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4a4 4 0 0 1 4 4c0 2-4 6-4 6s-4-4-4-6a4 4 0 0 1 4-4z"/><path d="M8 14h8"/><path d="M8 18h8"/></svg>
+        <div><h4>Artrose</h4><p>Tratamento para retardar a evolução e recuperar qualidade de vida</p></div>
+      </div>
+      <div class="cond-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <div><h4>Dores Crônicas</h4><p>Joelho, coluna, ombro — diagnóstico preciso da causa raiz</p></div>
+      </div>
+      <div class="cond-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+        <div><h4>Osteoporose</h4><p>Prevenção e manejo da densidade óssea com acompanhamento clínico</p></div>
+      </div>
+    </div>
+    <div class="cond-col">
+      <div class="cond-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="1"/></svg>
+        <div><h4>Lesões Esportivas</h4><p>Recuperação de traumas musculares e articulares pós-esporte</p></div>
+      </div>
+      <div class="cond-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        <div><h4>Infiltrações</h4><p>Procedimentos guiados para tratamento localizado da dor</p></div>
+      </div>
+      <div class="cond-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3"/><path d="M12 21v-3"/><path d="M3 12h3"/><path d="M18 12h3"/><path d="m15 9 3-3"/><path d="m6 18 3-3"/><path d="m9 9 3-3"/><path d="m18 18 3-3"/></svg>
+        <div><h4>Fraturas</h4><p>Cirurgias ortopédicas e trauma do esporte com reabilitação completa</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Comunidade -->
+<section class="comunidade" id="comunidade">
+  <div class="section-header">
+    <h2>O que você encontra na Comunidade</h2>
+    <p>Conteúdo clínico real, sem floreios. Cada módulo foi pensado para te ajudar a entender o que está acontecendo com o seu corpo e qual o melhor caminho para a recuperação.</p>
+  </div>
+  <div class="comunidade-inner">
+    <div class="mod1">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4a4 4 0 0 1 4 4c0 2-4 6-4 6s-4-4-4-6a4 4 0 0 1 4-4z"/><path d="M8 14h8"/><path d="M8 18h8"/></svg>
+      <div class="mod1-text">
+        <h3>Entenda sua dor</h3>
+        <p>4 vídeos que explicam por que a dor no joelho volta, qual a causa real da dor crônica, e quando procurar ajuda. Sem achismo, sem generalização.</p>
+      </div>
+      <div class="mod1-badge">
+        <strong>4</strong>
+        <span>VÍDEOS</span>
+      </div>
+    </div>
+    <div class="mod23">
+      <div class="mod-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+        <h3>Protocolo 5R</h3>
+        <p>A metodologia completa explicada passo a passo: Reduzir, Recuperar, Reforçar, Reprogramar, Retornar. Material para pacientes e profissionais.</p>
+        <a href="#protocolo">Ver protocolo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      </div>
+      <div class="mod-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <h3>Movimento sem dor</h3>
+        <p>Guias de exercícios para joelho, coluna e mobilidade no dia a dia. Rotinas seguras para cada fase da recuperação.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sobre Dr. Bruno -->
+<section id="sobre">
+  <div class="sobre">
+    <div class="sobre-img">
+      <img src="images/drbruno.JPG" alt="Dr. Bruno Machado">
+    </div>
+    <div class="sobre-text">
+      <p class="crm">CRM 4692 | TEOT 14080</p>
+      <h2>Dr. Bruno Machado</h2>
+      <p>Médico ortopedista especialista em Ortopedia Integrativa e Regenerativa. Foco em dor crônica, artrose, dores articulares, trauma esportivo e cirurgia do joelho. Mais de 10 anos de experiência aliando medicina preventiva, hábitos saudáveis e tratamento individualizado.</p>
+      <p>Já ajudei mais de 15 mil pacientes a viverem sem dor e com qualidade de vida, por meio de uma abordagem humanizada com avaliação biopsicossocial completa. Meu objetivo é tratar a causa, não apenas os sintomas.</p>
+      <div class="sobre-stats">
+        <div><h3>15.000+</h3><span>Pacientes</span></div>
+        <div><h3>10+</h3><span>Anos de experiência</span></div>
+        <div><h3>5R</h3><span>Protocolo próprio</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Protocolo 5R -->
+<section class="protocolo" id="protocolo">
+  <div class="section-header">
+    <h2>Cinco etapas. Um objetivo: sua recuperação.</h2>
+    <p>O protocolo mais completo em busca da regeneração de tecidos e alívio das dores. As fases são feitas em conjunto, com abordagem quinzenal.</p>
+  </div>
+  <div class="protocolo-inner">
+    <div class="r5-grid">
+      <div class="r5-card">
+        <div class="num">01</div>
+        <div class="letter">R</div>
+        <div class="name">REPOSIÇÃO</div>
+        <div class="sep"></div>
+        <div class="desc">Reposição de nutrientes, anti-inflamatórios e antioxidantes via soroterapia personalizada para preparar o corpo para a regeneração.</div>
+      </div>
+      <div class="r5-card">
+        <div class="num">02</div>
+        <div class="letter">R</div>
+        <div class="name">REDUÇÃO DA DOR</div>
+        <div class="sep"></div>
+        <div class="desc">Infiltrações, agulhamentos e bloqueios de dor para alívio 60% mais rápido. Criar condições para o tratamento funcionar.</div>
+      </div>
+      <div class="r5-card">
+        <div class="num">03</div>
+        <div class="letter">R</div>
+        <div class="name">REGENERAÇÃO</div>
+        <div class="sep"></div>
+        <div class="desc">Ondas de choque, laserterapia e ozonioterapia para estimular a regeneração dos tecidos e acelerar a recuperação.</div>
+      </div>
+      <div class="r5-card">
+        <div class="num">04</div>
+        <div class="letter">R</div>
+        <div class="name">REABILITAÇÃO</div>
+        <div class="sep"></div>
+        <div class="desc">Fisioterapia especializada e individualizada, com exercícios específicos para cada fase do tratamento.</div>
+      </div>
+      <div class="r5-card">
+        <div class="num">05</div>
+        <div class="letter">R</div>
+        <div class="name">RETORNO À FUNÇÃO</div>
+        <div class="sep"></div>
+        <div class="desc">Readaptação ao esporte e ao movimento desejado. Voltar a fazer o que você ama, sem dor e sem limitação.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Depoimentos em Vídeo -->
+<section class="depoimentos" id="depoimentos">
+  <div class="section-header">
+    <h2>Resultados que falam por si</h2>
+    <p>Veja depoimentos em vídeo de pacientes que recuperaram o movimento e a qualidade de vida.</p>
+  </div>
+  <div class="depoimentos-inner">
+    <!-- Video Main -->
+    <div class="video-main">
+      <div class="video-player" id="mainPlayer">
+        <video id="mainVideo" playsinline>
+          <source src="lv_0_20250717133315.mp4" type="video/mp4">
+        </video>
+        <div class="play-overlay" id="playOverlay" onclick="togglePlay()">
+          <div class="play-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="progress-bar"><span id="progress"></span></div>
+      </div>
+      <div class="video-info">
+        <p class="tag" id="vTag">DEPOIMENTO EM DESTAQUE</p>
+        <blockquote id="vQuote">"Há 3 anos sentia dor no joelho que me impedia de subir escadas. Após 4 meses com o Dr. Bruno, voltei a caminhar sem dor. O Protocolo 5R mudou minha vida."</blockquote>
+        <cite id="vCite">Maria Clara S., 58 anos</cite>
+        <p class="trat" id="vTrat">Tratamento: Protocolo 5R para artrose de joelho</p>
+        <div class="video-dots" id="videoDots"></div>
+      </div>
+    </div>
+
+    <!-- Thumbnails -->
+    <div class="thumbs-header">
+      <h3>Mais depoimentos</h3>
+      <div class="thumbs-arrows">
+        <button onclick="prevVideo()">&#8249;</button>
+        <button onclick="nextVideo()">&#8250;</button>
+      </div>
+    </div>
+    <div class="thumbs-grid" id="thumbsGrid"></div>
+  </div>
+</section>
+
+<!-- Relatos de Pacientes -->
+<section class="relatos" id="relatos">
+  <div class="section-header">
+    <h2>Relatos de pacientes</h2>
+    <p>Resultados reais de quem confiou no tratamento.</p>
+  </div>
+  <div class="relato-slider">
+    <button class="relato-arrow" onclick="prevRelato()">&#8249;</button>
+    <div class="relato-slider-inner">
+      <img id="relatoImg" src="IMG_6858.PNG" alt="Relato de paciente">
+      <span class="relato-counter" id="relatoCounter">1 / 5</span>
+    </div>
+    <button class="relato-arrow" onclick="nextRelato()">&#8250;</button>
+  </div>
+  <div class="relato-dots" id="relatoDots"></div>
+</section>
+
+<!-- Locais de Atendimento -->
+<section class="locais" id="locais">
+  <div class="section-header">
+    <h2>Onde atendo</h2>
+    <p>Unidades em Teresina, Santa Inês, Presidente Dutra, Santa Luzia e Caxias com infraestrutura completa para diagnóstico e tratamento.</p>
+  </div>
+  <div class="locais-inner">
+    <div class="locais-grid">
+      <div class="local-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
+        <h3>Clínison Diagnóstico</h3>
+        <p>Rua 24 de Outubro, 150<br>Centro, Caxias - MA</p>
+        <p class="phone">R$ 460 (com desconto: R$ 350)</p>
+      </div>
+      <div class="local-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
+        <h3>Santa Inês — DMI / Hcorp / Bio Imagem</h3>
+        <p>Santa Inês - MA</p>
+        <p class="phone">R$ 380</p>
+      </div>
+      <div class="local-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
+        <h3>Presidente Dutra — Imedical</h3>
+        <p>Presidente Dutra - MA</p>
+        <p class="phone">R$ 350</p>
+      </div>
+      <div class="local-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
+        <h3>Santa Luzia — Centro Médico</h3>
+        <p>Santa Luzia - MA</p>
+        <p class="phone">R$ 350</p>
+      </div>
+    </div>
+    <p style="text-align:center; color:var(--text-muted); font-size:13px; margin-top:24px;">Atende também por plano de saúde (vagas reduzidas).</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Sua recuperação começa com uma decisão</h2>
+  <p>Entre para a comunidade no WhatsApp e acompanhe conteúdo exclusivo, ou fale diretamente com o Dr. Bruno.</p>
+  <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+  <a href="https://chat.whatsapp.com/Eoa7fBtUYORLwc9g0LJFVX" class="btn-whatsapp" target="_blank">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+    Entrar na Comunidade
+  </a>
+  <a href="https://wa.me/5586994262812" target="_blank" style="display:inline-flex; align-items:center; gap:12px; padding:18px 48px; background:transparent; color:var(--text-light); border-radius:8px; font-size:15px; font-weight:500; text-decoration:none; border:1px solid rgba(255,255,255,0.2); transition:all 0.2s;" onmouseover="this.style.borderColor='#25D366';this.style.color='#25D366'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='var(--text-light)'">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+    Falar no WhatsApp
+  </a>
+  </div>
+  <div class="cta-meta">
+    <span>CRM 4692 | TEOT 14080</span>
+    <span>(86) 99426-2812</span>
+    <span>@drbrunomachadoortopedista</span>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>&copy; 2026 Dr. Bruno Machado — É no movimento que a vida acontece.</p>
+  <p>Ortopedia Integrativa e Regenerativa | Caxias-MA &middot; Santa Inês-MA &middot; Teresina-PI</p>
+</footer>
+
+<script>
+// Video data
+const videos = [
+  {
+    src: "lv_0_20250717133315.mp4",
+    tag: "DEPOIMENTO EM DESTAQUE",
+    quote: '"Há 3 anos sentia dor no joelho que me impedia de subir escadas. Após 4 meses com o Dr. Bruno, voltei a caminhar sem dor. O Protocolo 5R mudou minha vida."',
+    name: "Maria Clara S., 58 anos",
+    trat: "Tratamento: Protocolo 5R para artrose de joelho",
+    dur: "4:02"
+  },
+  {
+    src: "VIDEO-2026-02-25-14-36-37.mp4",
+    tag: "DEPOIMENTO",
+    quote: '"Diagnosticada com artrose no quadril, achava que precisaria de cirurgia. Com o tratamento conservador do Dr. Bruno, estou há 1 ano sem dores intensas."',
+    name: "Rosa Helena M., 63 anos",
+    trat: "Tratamento: Artrose de quadril",
+    dur: "5:20"
+  }
+];
+
+let currentIndex = 0;
+const mainVideo = document.getElementById('mainVideo');
+const playOverlay = document.getElementById('playOverlay');
+const progress = document.getElementById('progress');
+const vTag = document.getElementById('vTag');
+const vQuote = document.getElementById('vQuote');
+const vCite = document.getElementById('vCite');
+const vTrat = document.getElementById('vTrat');
+const videoDots = document.getElementById('videoDots');
+const thumbsGrid = document.getElementById('thumbsGrid');
+
+// Init dots
+videos.forEach((_, i) => {
+  const dot = document.createElement('span');
+  dot.className = i === 0 ? 'active' : 'inactive';
+  dot.onclick = () => selectVideo(i);
+  videoDots.appendChild(dot);
+});
+
+// Init thumbs
+videos.forEach((v, i) => {
+  const card = document.createElement('div');
+  card.className = 'thumb-card';
+  card.onclick = () => selectVideo(i);
+  card.innerHTML = `
+    <div class="thumb-video">
+      <video src="${v.src}" muted playsinline></video>
+      <div class="thumb-play">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </div>
+      <div class="thumb-duration">${v.dur}</div>
+    </div>
+    <div class="thumb-info">
+      <h4>${v.name.split(',')[0]}</h4>
+      <p>${v.trat}</p>
+    </div>
+  `;
+  thumbsGrid.appendChild(card);
+});
+
+function selectVideo(i) {
+  currentIndex = i;
+  const v = videos[i];
+  mainVideo.src = v.src;
+  mainVideo.load();
+  vTag.textContent = v.tag;
+  vQuote.textContent = v.quote;
+  vCite.textContent = v.name;
+  vTrat.textContent = v.trat;
+  playOverlay.style.display = 'flex';
+
+  // Update dots
+  document.querySelectorAll('.video-dots span').forEach((d, j) => {
+    d.className = j === i ? 'active' : 'inactive';
+  });
+}
+
+function togglePlay() {
+  if (mainVideo.paused) {
+    mainVideo.play();
+    playOverlay.style.display = 'none';
+  } else {
+    mainVideo.pause();
+    playOverlay.style.display = 'flex';
+  }
+}
+
+function nextVideo() { selectVideo((currentIndex + 1) % videos.length); }
+function prevVideo() { selectVideo((currentIndex - 1 + videos.length) % videos.length); }
+
+mainVideo.addEventListener('timeupdate', () => {
+  const pct = (mainVideo.currentTime / mainVideo.duration) * 40;
+  progress.style.width = Math.min(pct, 100) + '%';
+});
+
+mainVideo.addEventListener('ended', () => {
+  playOverlay.style.display = 'flex';
+});
+
+// Relatos carousel
+const relatos = ["IMG_6858.PNG", "IMG_6859.PNG", "IMG_6860.PNG", "IMG_6861.PNG", "IMG_6862.PNG"];
+let relatoIndex = 0;
+const relatoImg = document.getElementById('relatoImg');
+const relatoCounter = document.getElementById('relatoCounter');
+const relatoDots = document.getElementById('relatoDots');
+
+relatos.forEach((_, i) => {
+  const dot = document.createElement('span');
+  dot.className = i === 0 ? 'active' : '';
+  dot.onclick = () => selectRelato(i);
+  relatoDots.appendChild(dot);
+});
+
+function selectRelato(i) {
+  relatoIndex = i;
+  relatoImg.src = relatos[i];
+  relatoCounter.textContent = (i + 1) + ' / ' + relatos.length;
+  document.querySelectorAll('.relato-dots span').forEach((d, j) => {
+    d.className = j === i ? 'active' : '';
+  });
+}
+function nextRelato() { selectRelato((relatoIndex + 1) % relatos.length); }
+function prevRelato() { selectRelato((relatoIndex - 1 + relatos.length) % relatos.length); }
+
+// Mobile menu: close on link click
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.querySelector('.navbar').classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
