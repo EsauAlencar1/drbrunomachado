@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://drbrunomachado.com.br/sitemap.xml
